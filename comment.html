@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+    <link rel="stylesheet" href="comment.css">
+</head>
+<body>
+
+    <div class="commentBox">
+        <h3>Leave a Comment</h3>
+        <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <div id="toast" class="toast">Your comment has been submitted!</div>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function() {
+    let comment = document.getElementById("commentInput").value.trim();
+
+    if (comment === "") {
+        alert("Please enter a comment before submitting.");
+        return;
+    }
+    let toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+    document.getElementById("commentInput").value = "";
+});
+</script></body>
+</html>
